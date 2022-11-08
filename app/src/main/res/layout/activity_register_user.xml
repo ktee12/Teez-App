@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginback"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterUser">
 
     <TextView
-        android:id="@+id/tv_header_title"
+        android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TeeZ"
@@ -21,8 +21,9 @@
         app:layout_constraintLeft_toRightOf="parent"
         android:layout_marginTop="50dp"/>
 
+
     <TextView
-        android:id="@+id/tv_header_description"
+        android:id="@+id/header_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Multipulpose ML App"
@@ -30,23 +31,49 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header_title"
+        app:layout_constraintTop_toBottomOf="@+id/header_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
 
     <EditText
-        android:id="@+id/etv_email"
+        android:id="@+id/etv_fullName"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_description" />
+
+    <EditText
+        android:id="@+id/etv_age"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etv_fullName"/>
+
+    <EditText
+        android:id="@+id/etv_email"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_header_description"/>
+        app:layout_constraintTop_toBottomOf="@id/etv_age" />
 
     <EditText
         android:id="@+id/etv_password"
@@ -59,15 +86,16 @@
         app:layout_constraintTop_toBottomOf="@+id/etv_email"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
+
 
     <Button
-        android:id="@+id/btn_signIn"
+        android:id="@+id/btn_registerUser"
         android:layout_width="380dp"
         android:layout_height="70dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#00BCD4"
-        android:text="Login"
+        android:text="Register User"
         android:textColor="#ffffff"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -75,30 +103,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btn_signIn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="50dp"/>
-
-
-
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@id/tv_forgotPassword"
-        app:layout_constraintLeft_toRightOf="@id/tv_forgotPassword"
-        android:layout_marginLeft="80dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

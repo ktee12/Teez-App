@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
+
         //Navigation
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener( this);
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -65,8 +68,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new MapsFragment()).commit();
                 break;
             case R.id.api:
-                Intent intent = new Intent(this, ApiActivity.class);
-                startActivity(intent);
+                Intent intentApi = new Intent(this, ApiActivity.class);
+                startActivity(intentApi);
+                break;
+            case R.id.logout:
+                Intent intentLogout = new Intent(this, LoginActivity.class);
+                startActivity(intentLogout);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

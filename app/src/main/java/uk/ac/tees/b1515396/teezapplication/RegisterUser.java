@@ -115,6 +115,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
                                                 startActivity(new Intent(RegisterUser.this, LoginActivity.class));
                                             }
+                                            // Redirect to login
                                             else {
                                                 Toast.makeText(RegisterUser.this, "Failed to register! Please try again!", Toast.LENGTH_LONG).show();
                                                 progressBar.setVisibility(View.GONE);

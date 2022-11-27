@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import uk.ac.tees.b1515396.teezapplication.R;
 import uk.ac.tees.b1515396.teezapplication.main.ApiActivity;
@@ -72,13 +73,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intentApi);
                 break;
             case R.id.logout:
-                Intent intentLogout = new Intent(this, LoginActivity.class);
-                startActivity(intentLogout);
+                initLogout();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void initLogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intentLogout = new Intent(this, LoginActivity.class);
+        finish();
+        startActivity(intentLogout);
+    }
+
 
     @Override
     public void onBackPressed() {

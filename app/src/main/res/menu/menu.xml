@@ -19,7 +19,7 @@
 
         <item android:id="@+id/logout"
             android:title="Logout"
-            android:icon="@drawable/ic_api">
+            android:icon="@drawable/ic_logout">
         </item>
     </group>
 

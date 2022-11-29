@@ -10,9 +10,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import uk.ac.tees.b1515396.teezapplication.R;
 import uk.ac.tees.b1515396.teezapplication.main.ApiActivity;
@@ -23,17 +32,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
 
+    // Get the user details
+    private FirebaseUser user;
+    private DatabaseReference dbReference;
+    private String userID;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Navigation header
+        //NavigationView navHeader = findViewById(R.id.nav)
+        initHeader();
 
         // Declare DrawerLayout
         drawerLayout = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
 
-        //Navigation
+        //Navigation view
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener( this);
         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new HomeFragment());
@@ -53,9 +72,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.home);
         }
+
+
     }
 
+    private void initHeader() {
+        // Get firebase details
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        dbReference = FirebaseDatabase.getInstance().getReference();
+        userID = user.getUid();
 
+        // use headerView to get nav_header
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView fullNameTextView = headerView.findViewById(R.id.greeting);
+        TextView emailTextView = headerView.findViewById(R.id.email);
+
+        dbReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+
+                if(userProfile != null){
+                    String fullName = userProfile.fullName;
+                    String email = userProfile.email;
+
+                    fullNameTextView.setText("Welcome, " + fullName);
+                    emailTextView.setText(email);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
 
 
     @Override
@@ -81,10 +134,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initLogout() {
+        //TODO: Get the fullName here.
         FirebaseAuth.getInstance().signOut();
         Intent intentLogout = new Intent(this, LoginActivity.class);
         finish();
         startActivity(intentLogout);
+
     }
 
 

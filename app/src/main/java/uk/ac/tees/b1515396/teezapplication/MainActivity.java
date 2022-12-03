@@ -23,8 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import uk.ac.tees.b1515396.teezapplication.R;
-import uk.ac.tees.b1515396.teezapplication.main.ApiActivity;
+import uk.ac.tees.b1515396.teezapplication.api.ApiActivity;
 import uk.ac.tees.b1515396.teezapplication.main.HomeFragment;
 import uk.ac.tees.b1515396.teezapplication.main.MapsFragment;
 

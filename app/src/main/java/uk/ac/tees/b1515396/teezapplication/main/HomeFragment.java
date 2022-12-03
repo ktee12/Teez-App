@@ -1,6 +1,7 @@
 package uk.ac.tees.b1515396.teezapplication.main;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -35,6 +36,7 @@ public class HomeFragment extends Fragment {
         btn_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 scanCode();
             }
         });
@@ -43,30 +45,30 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-//    private void scanCode() {
-//        ScanOptions scanOptions = new ScanOptions();
-//        scanOptions.setPrompt("Volume up to flash on");
-//        scanOptions.setBeepEnabled(true);
-//        scanOptions.setOrientationLocked(true);
-//        //scanOptions.setCaptureActivity(CaptureAct.class);
-//        scanLauncher.launch(scanOptions);
-//    }
+    private void scanCode() {
+        ScanOptions scanOptions = new ScanOptions();
+        scanOptions.setPrompt("Volume up to flash on");
+        scanOptions.setBeepEnabled(true);
+        scanOptions.setOrientationLocked(true);
+        scanOptions.setCaptureActivity(CaptureAct.class);
+        scanLauncher.launch(scanOptions);
+    }
 
-//    AppCompatActivity activity = (AppCompatActivity) getActivity();
-//
-//    ActivityResultLauncher<ScanOptions> scanLauncher = registerForActivityResult(new ScanContract(), result -> {
-//
-//        if(result.getContents() != null){
-//            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-//            builder.setTitle("Result");
-//            builder.setMessage(result.getContents());
-//            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialogInterface, int i) {
-//                    dialogInterface.dismiss();
-//                }
-//            }).show();
-//        }
-//    });
+    //AppCompatActivity activity = (AppCompatActivity) getActivity();
+
+    ActivityResultLauncher<ScanOptions> scanLauncher = registerForActivityResult(new ScanContract(), result -> {
+
+        if(result.getContents() != null){
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Result");
+            builder.setMessage(result.getContents());
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            }).show();
+        }
+    });
 
 }

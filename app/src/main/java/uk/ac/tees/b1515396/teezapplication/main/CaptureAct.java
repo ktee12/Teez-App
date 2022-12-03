@@ -1,4 +1,6 @@
 package uk.ac.tees.b1515396.teezapplication.main;
 
-public class CaptureAct {
+import com.journeyapps.barcodescanner.CaptureActivity;
+
+public class CaptureAct extends CaptureActivity {
 }

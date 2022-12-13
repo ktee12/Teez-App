@@ -23,7 +23,7 @@ import uk.ac.tees.b1515396.teezapplication.R;
 
 public class HomeFragment extends Fragment {
 
-    Button btn_scan;
+    private Button btn_scan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

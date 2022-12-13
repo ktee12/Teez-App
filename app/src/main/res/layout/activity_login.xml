@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginback"
+    android:background="#DDDDDD"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/tv_header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TeeZ"
+        android:text="@string/header_name"
         android:textSize="60sp"
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textStyle="bold"
+        android:textColor="#0057D8"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
@@ -25,7 +26,6 @@
         android:id="@+id/tv_header_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Multipulpose ML App"
         android:textSize="18sp"
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
@@ -40,8 +40,9 @@
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:autofillHints="emailAddress"
         android:ems="10"
-        android:hint="Email Address"
+        android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,8 +53,9 @@
         android:id="@+id/etv_password"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
+        android:autofillHints="password"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/pass_hint"
         android:inputType="textPassword"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/etv_email"
@@ -66,8 +68,8 @@
         android:layout_width="380dp"
         android:layout_height="70dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#00BCD4"
-        android:text="Login"
+        android:backgroundTint="#0057D8"
+        android:text="@string/login_btn"
         android:textColor="#ffffff"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -79,13 +81,13 @@
         android:id="@+id/tv_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="@string/forgot_pass"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/btn_signIn"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="25dp"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginStart="50dp"/>
 
 
 
@@ -93,12 +95,12 @@
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@id/tv_forgotPassword"
         app:layout_constraintLeft_toRightOf="@id/tv_forgotPassword"
-        android:layout_marginLeft="80dp"/>
+        android:layout_marginStart="80dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -110,6 +112,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@ public class ForgotPassword extends AppCompatActivity {
     private Button resetPasswordButton;
     private ProgressBar progressBar;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -21,9 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.jar.JarException;
 
-import uk.ac.tees.b1515396.teezapplication.MainActivity;
+
 import uk.ac.tees.b1515396.teezapplication.R;
 
 public class ApiActivity extends AppCompatActivity {

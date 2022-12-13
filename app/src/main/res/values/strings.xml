@@ -6,4 +6,25 @@
     <!-- Navigation Drawer! -->
     <string name="navigation_draw_open">open navigation drawer</string>
     <string name="navigation_draw_close">close navigation drawer</string>
+
+    <!-- Google Api key -->
+    <string name="api_key">AIzaSyAcgvf88Uqq9pRMHvgUn_wcLPIzuNcx3xw</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+
+
+    <!-- App parameters -->
+    <string name="header_name">TeeZ</string>
+    <string name="email_hint">Email Address</string>
+    <string name="pass_hint">Password</string>
+    <string name="pass_reset_btn">Reset Password</string>
+    <string name="login_btn">Login</string>
+    <string name="forgot_pass">Forgot Password?</string>
+    <string name="register">Register</string>
+    <string name="course_name">Course Name</string>
+    <string name="batch">Batch</string>
+    <string name="modes">Modes</string>
+    <string name="course_img">Course Image</string>
+    <string name="scan_code">Scan QR/Bar Code</string>
+
 </resources>

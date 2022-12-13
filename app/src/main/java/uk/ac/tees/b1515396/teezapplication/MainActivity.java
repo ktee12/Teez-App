@@ -25,7 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import uk.ac.tees.b1515396.teezapplication.api.ApiActivity;
 import uk.ac.tees.b1515396.teezapplication.main.HomeFragment;
-import uk.ac.tees.b1515396.teezapplication.main.MapsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -118,7 +117,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new HomeFragment()).commit();
                 break;
             case R.id.map:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new MapsFragment()).commit();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_container, new MapsFragment()).commit();
+                Intent mapIntent = new Intent(this, MapsActivity.class);
+                startActivity(mapIntent);
                 break;
             case R.id.api:
                 Intent intentApi = new Intent(this, ApiActivity.class);
